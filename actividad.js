@@ -67,39 +67,63 @@ const products = [
   // y su llamda del metodo con un console.log donde muestre la información
   
   /// 1 - ¿Cuál es el promedio de valor de cada tipo de producto?
-             //Array separados por tipo
-             const tipo1 = [];
-             const tipo2 = [];
-             const tipo3 = [];
- 
+           
+             
              // Tipo 1
              const categoria1 = products.filter((producto,index,arreglo)=>{
              return producto.typeOfProduct === 1 })
-             tipo1.push(categoria1)
-             console.log(tipo1);
-             
-           
+
+             const categoriaPrecio = categoria1.map(producto => producto.price)
+             console.log(categoriaPrecio);
+
+             const valorSuma1 = categoria1.reduce((a, b) => {
+                return { "precio": a.price + b.price };
+              });
+              console.log(valorSuma1);
+
              // Tipo 2
              const categoria2 = products.filter((producto,index,arreglo)=>{
              return producto.typeOfProduct === 2 })
-             tipo2.push(categoria2)
-             console.log(tipo2);
+            
+             const categoriaPrecio1 = categoria2.map(producto => producto.price)
+             console.log(categoriaPrecio1);   
+
              
              // Tipo 3
              const categoria3 = products.filter((producto,index,arreglo)=>{
              return producto.typeOfProduct === 3 })
-             tipo3.push(categoria3)
-             console.log(tipo3);
-                     
- 
-
-  /// 2 - ¿Cuál es el producto más costoso de cada categoria?
-           
-
-
-  /// 3 - ¿Exite algún producto de tipo Electronico que cueste $100?
+                  
+             const categoriaPrecio2 = categoria3.map(producto => producto.price)
+             console.log(categoriaPrecio2);   
 
                 
+
+  /// 2 - ¿Cuál es el producto más costoso de cada categoria?
+         
+            var valor1 = Math.max(...categoriaPrecio);
+            console.log(valor1);
+           
+            var resultado= `El Valor mas grande de los productos de tipo 1 es ${valor1}`
+                console.log(resultado);
+           
+             
+            var valor2 = Math.max(...categoriaPrecio1);
+             console.log(valor2);
+               
+            var resultado1= `El Valor mas grande de los productos de tipo 2 es ${valor2}`
+            console.log(resultado1);
+                   
+            
+            var valor3 = Math.max(...categoriaPrecio2);
+            console.log(valor3);
+              
+           var resultado2= `El Valor mas grande de los productos de tipo 3 es ${valor3}`
+           console.log(resultado2);
+              
+                
+
+  /// 3 - ¿Exite algún producto de tipo Electronico que cueste $100?
+               
   /// 4 - Obtener todos los productos que en nombre tengan las letra S. 
         const productosConS = products.filter( (product,index,arreglo)=>{
                
